@@ -13,13 +13,23 @@ pipeline {
         stage('Test') {
             steps {
                 sh '''#!/bin/bash
-                echo 'Test Step: We run testing tool like pytest here'
+                echo 'Test Step: Creating virtual environment and running tests'
 
-                # Fill out the path to conda here
-                sudo /path/to/conda init
+                # Create a virtual environment named mlip
+                python3 -m venv mlip
 
-                # Complete the command to run pytest
-                sudo /path/to/conda run -n <Environment Name> pytest
+                 # Activate the virtual environment
+                source mlip/bin/activate
+
+                # Upgrade pip and install required packages
+                pip install --upgrade pip
+                pip install pytest numpy pandas scikit-
+                
+                # Run pytest
+                pytest
+
+                # Deactivate the virtual environment
+                deactivate
 
                 echo 'pytest run completed'
                 '''
