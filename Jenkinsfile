@@ -23,7 +23,7 @@ pipeline {
 
                 # Upgrade pip and install required packages
                 pip install --upgrade pip
-                pip install pytest numpy pandas scikit-
+                pip install pytest numpy pandas scikit-learn
                 
                 # Run pytest
                 pytest
